@@ -1,0 +1,40 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**", "tsdown.config.ts", "package.json"],
+      "outputs": ["dist/**"]
+    },
+    "dev": {
+      "dependsOn": ["build"],
+      "cache": false,
+      "persistent": true
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "inputs": ["src/**", "test/**", "vitest.config.ts", "package.json"],
+      "outputs": []
+    },
+    "lint": {
+      "inputs": ["src/**", "*.{js,ts,json,jsonc}", "package.json"]
+    },
+    "format": {
+      "inputs": ["src/**", "*.{js,ts,json,jsonc,md}", "package.json"]
+    },
+    "clean": {
+      "cache": false,
+      "inputs": []
+    },
+    "release": {
+      "dependsOn": ["build", "test", "lint"],
+      "cache": false
+    }
+  },
+  "globalDependencies": [
+    "package.json",
+    "tsconfig.json",
+    "turbo.json"
+  ]
+}

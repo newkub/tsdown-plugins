@@ -1,45 +1,35 @@
 {
-  "name": "tsdown-plugins-reexport",
+  "name": "tsdown-plugins",
   "version": "0.1.0",
-  "description": "TSDown plugin for re-exporting config files",
+  "description": "A collection of TSDown plugins for bundling and exporting config files",
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": "./dist/index.js",
-    "./package.json": "./package.json"
-  },
-  "files": [
-    "dist"
+  "private": true,
+  "workspaces": [
+    "plugins/*"
   ],
   "scripts": {
-    "build": "tsdown --exports",
-    "dev": "tsdown --watch",
-    "lint": "biome lint --write .",
-    "format": "biome format --write .",
-    "release": "release-it"
-  },
-  "peerDependencies": {
-    "tsdown": "^0.15.6"
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "test": "turbo test",
+    "lint": "turbo lint",
+    "format": "turbo format",
+    "release": "turbo release",
+    "clean": "turbo clean && rm -rf node_modules",
+    "install:all": "bun install"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.5",
     "@types/bun": "^1.2.23",
     "@types/node": "24.6.2",
     "release-it": "^19.0.5",
-    "typescript": "^5.9.3"
+    "tsdown": "^0.15.6",
+    "turbo": "^2.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
   },
-  "module": "./dist/index.js",
-  "release-it": {
-    "$schema": "https://unpkg.com/release-it@19/schema/release-it.json",
-    "git": {
-      "commitMessage": "chore: release v${version}"
-    },
-    "github": {
-      "release": true
-    },
-    "npm": {
-      "publish": true
-    }
+  "packageManager": "bun@1.2.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "bun": ">=1.2.0"
   }
 }
