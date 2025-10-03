@@ -1,0 +1,35 @@
+# Dependency directories
+node_modules/
+bun.lock
+
+# Build directories
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+.tscache/
+
+# Bun
+.bun/
