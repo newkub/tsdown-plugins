@@ -1,0 +1,22 @@
+{
+  "name": "@wrikka/tsdown-plugins",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "bun@latest",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "turbo format",
+    "test": "turbo test",
+    "update:deps": "taze -r -w && ni",
+    "review": "bun format && bun lint && bun test && bun update:deps"
+  },
+  "devDependencies": {
+    "turbo": "latest",
+    "taze": "latest"
+  }
+}
