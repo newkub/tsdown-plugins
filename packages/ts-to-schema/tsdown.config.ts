@@ -1,17 +1,19 @@
-import { defineConfig } from 'tsdown';
-import { generateAndWriteSchema } from './src';
+import { defineConfig } from "tsdown";
+import { tsToSchemaPlugin } from "./src/index";
 
 export default defineConfig({
-    exports: true,
-    dts: true,
-    entry: ['src/index.ts'],
-    hooks(hooks) {
-        hooks.hook('build:prepare', () => {
-            generateAndWriteSchema({
-                name: 'DotfilesConfig',
-                input: 'src/examples.ts',
-                outputDir: 'public',
-            });
-        });
-    },
+	exports: true,
+	dts: true,
+	entry: ["src/index.ts"],
+	plugins: [
+		tsToSchemaPlugin({
+			schemas: [
+				{
+					name: "DotfilesConfig",
+					input: "src/examples.ts",
+					outputDir: "public",
+				},
+			],
+		}),
+	],
 });

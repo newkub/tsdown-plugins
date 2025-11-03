@@ -1,24 +1,28 @@
 {
-  "name": "ts-to-schema",
-  "type": "module",
-  "types": "./dist/index.d.mts",
-  "scripts": {
-    "build": "tsdown --config-loader unconfig --exports --dts",
-    "dev": "bun run src/index.ts",
-    "lint": "biome check .",
-    "format": "biome format --write .",
-    "test": "vitest"
-  },
-  "devDependencies": {
-    "zod": "^4.1.12"
-  },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "exports": {
-    ".": "./dist/index.mjs",
-    "./package.json": "./package.json"
-  },
-  "dependencies": {
-    "ts-json-schema-generator": "^2.4.0"
-  }
+	"name": "ts-to-schema",
+	"type": "module",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"build": "tsdown --config-loader unconfig",
+		"dev": "bun run src/index.ts",
+		"lint": "bunx tsc --noEmit && biome lint --write",
+		"format": "biome format --write .",
+		"release": "release-it",
+		"test": "vitest"
+	},
+	"devDependencies": {
+		"@types/node": "^24.10.0",
+		"rolldown": "latest",
+		"tsdown": "latest",
+		"vitest": "latest"
+	},
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"exports": {
+		".": "./dist/index.js",
+		"./package.json": "./package.json"
+	},
+	"dependencies": {
+		"typescript": "^5.7.2"
+	}
 }

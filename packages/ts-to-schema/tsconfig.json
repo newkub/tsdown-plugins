@@ -1,3 +1,9 @@
 {
-    "extends": "../../tsconfig.json",
+	"extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"rootDir": "src",
+		"lib": ["ES2022", "DOM"],
+		"types": ["node"]
+	},
+	"exclude": ["rolldown.config.ts", "tsdown.config.ts", "scripts", "test"]
 }
