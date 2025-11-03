@@ -2,7 +2,7 @@
   "name": "@wrikka/tsdown-plugins",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "bun@latest",
+  "packageManager": "bun@3.1.0",
   "workspaces": [
     "packages/*"
   ],
