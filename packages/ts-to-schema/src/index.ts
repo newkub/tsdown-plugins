@@ -10,7 +10,7 @@ interface JSONSchema {
 	type?: string | string[];
 	properties?: Record<string, JSONSchema>;
 	required?: string[];
-	items?: JSONSchema;
+	items?: JSONSchema | JSONSchema[];
 	anyOf?: JSONSchema[];
 	allOf?: JSONSchema[];
 	enum?: unknown[];
